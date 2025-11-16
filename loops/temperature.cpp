@@ -32,14 +32,11 @@ double farenheittokelvin(double x)
     return ((x - 32) * 5/9 + 273.15);
 }
 
-int main() 
+void test()
 {
-    bool start { 1 };
     std::cout << std::fixed << std::setprecision(2);
 
-    do 
-    {
-        std::cout << "Enter temperature: " << '\n';
+    std::cout << "Enter temperature: " << '\n';
         double utemp{ };
         std::cin >> utemp; 
         
@@ -70,24 +67,38 @@ int main()
                 std::cout << utemp << input << " is " << kelvintofarenheit(utemp) << output << '\n';
         else 
             std::cout << "Enter a valid temperature character! C, K, or F!" << '\n';
-            continue;
+            
+}
 
-    std::string again { }; 
-    std::cout << "Convert again? (y/n): " << '\n';
-    std::cin >> again; 
-    
 
-        {if (again == "y")
-            start = 1;
+int main() 
+{
+    bool start { 1 };
     
-        else 
+    while (start == 1)
             {
-            start = 0;
-                std::cout << "Goodbye!" << '\n';
+                test();
+                std::string again { }; 
+                std::cout << "Convert again? (y/n): " << '\n';
+                std::cin >> again; 
+                
+
+                    {if (again == "y")
+                        {
+                            start = 1;
+                        }
+                
+                    else 
+                        {
+                            start = 0;
+                                std::cout << "Goodbye!" << '\n';
+                        }
+                    }
             }
-        }
-    } while (start == 1);
 
 return 0;
+} 
 
-}
+
+
+
